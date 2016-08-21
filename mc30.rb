@@ -24,8 +24,8 @@ class MC30
         .match(/\d+$/)
 
       # Parse HTML, and get last update
-      last_update =
-        DateTime.parse(traffic_data.css('.width40.trafico_fechas p > text()').text)
+      time = Time.parse(traffic_data.css('.width40.trafico_fechas p > text()').text)
+      last_update = DateTime.parse(time.to_s)
 
       # Parse HTML, and get the traffic alerts
       alerts = Array.new
